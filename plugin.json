@@ -1,0 +1,53 @@
+{
+    "id": "mattermost-block-system-messages-plugin",
+    "name": "Block System Messages Plugin",
+    "description": "Blocks System messages appearing in Mattermost",
+    "version": "0.1.0",
+    "server": {
+        "executables": {
+            "linux-amd64": "server/dist/plugin-linux-amd64",
+            "darwin-amd64": "server/dist/plugin-darwin-amd64",
+            "windows-amd64": "server/dist/plugin-windows-amd64.exe"
+        }
+    },
+    "settings_schema": {
+        "header": "",
+        "footer": "",
+        "settings": [
+            {
+                "key": "ChannelId",
+                "display_name": "Channel ID to be monitored",
+                "type": "text",
+                "help_text": "Click channel dwopdow menu > View info and copy the channel ID",
+                "placeholder":""
+            },
+            {
+                "key": "EventType",
+                "display_name": "Event to be blocked",
+                "type": "dropdown",
+                "default": {
+                    "display_name": "Channel header change",
+                    "value": "system_header_change"
+                },
+                "options": [
+                    {
+                        "display_name": "Channel header change",
+                        "value": "system_header_change"
+                    },
+                    {
+                        "display_name": "Channel display name change",
+                        "value": "system_displayname_change"
+                    },
+                    {
+                        "display_name": "User joins the channel",
+                        "value": "system_join_channel"
+                    },
+                    {
+                        "display_name": "User leaves the channel",
+                        "value": "system_leave_channel"
+                    }],
+                "help_text": ""
+            }
+        ]
+    }
+}
